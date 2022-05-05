@@ -5,13 +5,13 @@ public class Event {
     String name;
     String SportType;
     matchmakingHour hour;
-    User U;
 
-    public Event(int alreadyJoined, String name, String SportType, matchmakingHour matchMakingHour, User U) {
+    public Event(int alreadyJoined, String name, String SportType, matchmakingHour matchMakingHour) {
         this.alreadyJoined = alreadyJoined;
         this.name = name;
         this.SportType = SportType;
         this.hour = matchMakingHour;
-        this.U = U;
     }
+
+
 }
