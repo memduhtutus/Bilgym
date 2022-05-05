@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "566202238071",
-    "project_id": "bilgym-e9e8b",
-    "storage_bucket": "bilgym-e9e8b.appspot.com"
+    "project_number": "873079325155",
+    "firebase_url": "https://tryingbilgym-default-rtdb.firebaseio.com",
+    "project_id": "tryingbilgym",
+    "storage_bucket": "tryingbilgym.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:566202238071:android:c38da3c974884fb976f272",
+        "mobilesdk_app_id": "1:873079325155:android:e75af60b64ae280b7060d6",
         "android_client_info": {
           "package_name": "com.memduhtutus.tryingbilgym"
         }
       },
       "oauth_client": [
         {
-          "client_id": "566202238071-bjq5vcjmj3de18s6bsrshic5nqn4tggi.apps.googleusercontent.com",
+          "client_id": "873079325155-j4bfu3b64gggiki6ng5tapg4pu6lk8fa.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBMpjE-g2bEjyyziwvniZ9zHU-aaF4Jlkk"
+          "current_key": "AIzaSyCMiI1Ddoq8_ntVC2uBb4kz9BhIZ7vuSUc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "566202238071-bjq5vcjmj3de18s6bsrshic5nqn4tggi.apps.googleusercontent.com",
+              "client_id": "873079325155-j4bfu3b64gggiki6ng5tapg4pu6lk8fa.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
