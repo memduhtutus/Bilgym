@@ -10,6 +10,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TryingBilgym">
         <activity
+            android:name=".jkvhbjkljkbh"
+            android:exported="false" />
+        <activity
+            android:name=".PersonalInfoScreen"
+            android:exported="false" />
+        <activity
+            android:name=".ProgressTrackingScreen"
+            android:exported="false" />
+        <activity
+            android:name=".PersonalTrainerScreen"
+            android:exported="false" />
+        <activity
+            android:name=".MatchmakingScreen"
+            android:exported="false" />
+        <activity
+            android:name=".GymAppointmentScreen"
+            android:exported="false" />
+        <activity
+            android:name=".GetAppointmentScreen"
+            android:exported="false" />
+        <activity
+            android:name=".CreateEventScreen"
+            android:exported="false" />
+        <activity
+            android:name=".CancelActivityScreen"
+            android:exported="false" />
+        <activity
+            android:name=".AvailableEventScreen"
+            android:exported="false" />
+        <activity
             android:name=".PersonalInfo"
             android:exported="false" />
         <activity

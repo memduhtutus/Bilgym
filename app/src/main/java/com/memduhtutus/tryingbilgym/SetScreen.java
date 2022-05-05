@@ -14,7 +14,7 @@ public class SetScreen extends AppCompatActivity {
         setContentView(R.layout.activity_set_screen);
     }
     public void setBodyInfoClicked(View view){
-        Intent intent = new Intent(SetScreen.this, PersonalInfo.class);
+        Intent intent = new Intent(SetScreen.this, PersonalInfoScreen.class);
         startActivity(intent);
     }
 

@@ -15,13 +15,17 @@ public class MainScreen extends AppCompatActivity {
     }
     public void gymAppoClicked(View view){
 
+        Intent intent = new Intent(MainScreen.this, GymAppointmentScreen.class);
+        startActivity(intent);
     }
 
     public void persProgClicked(View view){
-
+        Intent intent = new Intent(MainScreen.this, PersonalTrainerScreen.class);
+        startActivity(intent);
     }
     public void matchmakingClicked(View view){
-
+        Intent intent = new Intent(MainScreen.this, MatchmakingScreen.class);
+        startActivity(intent);
     }
     public void aboutUsClicked(View view){
 
