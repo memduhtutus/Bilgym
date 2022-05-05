@@ -26,6 +26,7 @@ public class Matchmaking implements HandleEvent {
         if(e.getAlreadyJoined() < e.getQuota()){
             e.alreadyJoined++;
             u.joinedEvents.add(e);
+            e.quota--;
             //buton join'den cancela çevrilecek
             return true;
         }
@@ -36,6 +37,7 @@ public class Matchmaking implements HandleEvent {
     public boolean cancelEventAppt(User u, Event e) {
         e.alreadyJoined--;
         u.joinedEvents.remove(e);
+        e.quota--;
         return true;
     }
 }

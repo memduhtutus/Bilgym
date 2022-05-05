@@ -63,7 +63,7 @@ public class MainActivity {
 
     private void createNewReservation(User u, int day, gymHour hour){
         String key = mDatabase.child("reservations").push().getKey();
-        Reservation reserv = new Reservation(u, day, hour);
+        Reservation reserv = new Reservation(day, hour);
         Map<String, Object> reservValues = reserv.toMap();
 
         Map<String, Object> childUpdates = new HashMap<>();
