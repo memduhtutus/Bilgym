@@ -20,9 +20,9 @@ public class AvailableEventScreen extends AppCompatActivity {
     public void showEventsClicked(View view){
         String eventText = "";
         for(int i=0; i < MatchmakingScreen.events.size(); i++){
-            eventText += MatchmakingScreen.events.get(i).toMap();
-            binding.availableEvents.setText(eventText);
+            eventText += MatchmakingScreen.events.get(i).toMap().toString();
         }
+        binding.availableEvents.setText(eventText);
     }
 
 }

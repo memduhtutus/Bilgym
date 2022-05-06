@@ -92,19 +92,19 @@ public class PersonalInfoScreen extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Spaces cannot be empty", Toast.LENGTH_LONG).show();
         }
         else{
-            int userAge = Integer.parseInt(binding.editTextTextPersonName8.getText().toString());
+            int userAge = Integer.parseInt(textView1.getText().toString());
             textView1.setText("Your age: " + userAge);
             sharedPreferences.edit().putInt("storedAge", userAge).apply();
 
-            String gender = String.valueOf(binding.editTextTextPersonName6.getText());
+            String gender = String.valueOf(textView2.getText());
             textView2.setText("Your Gender: " + gender);
             sharedPreferences.edit().putString("storedGender", gender).apply();
 
-            int height = Integer.parseInt(binding.editTextTextPersonName7.getText().toString());
+            int height = Integer.parseInt(textView3.getText().toString());
             textView3.setText("Your Height: " + height);
             sharedPreferences.edit().putInt("storedHeight", height).apply();
 
-            int weight = Integer.parseInt(binding.editTextTextPersonName5.getText().toString());
+            int weight = Integer.parseInt(textView4.getText().toString());
             textView4.setText("Your Weight: " + weight);
             sharedPreferences.edit().putInt("storedWeight", weight).apply();
         }
