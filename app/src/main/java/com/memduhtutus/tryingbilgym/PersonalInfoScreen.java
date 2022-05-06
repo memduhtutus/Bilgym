@@ -16,7 +16,6 @@ import com.memduhtutus.tryingbilgym.databinding.ActivityPersonalInfoScreenBindin
 
 
 public class PersonalInfoScreen extends AppCompatActivity {
-    private @NonNull ActivityPersonalInfoScreenBinding binding;
     EditText editText1;
     EditText editText2;
     EditText editText3;
@@ -35,7 +34,7 @@ public class PersonalInfoScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_info_screen);
-        binding = ActivityPersonalInfoScreenBinding.inflate(getLayoutInflater());
+
 
         editText1 = findViewById(R.id.editTextTextPersonName8);
         editText2 = findViewById(R.id.editTextTextPersonName6);
