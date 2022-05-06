@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class User {
     String name;
     String bilkentMail;
-    int bilID;
+    String bilID;
     String password;
     PersonalInfoScreen pi;
     ArrayList<String> selectedMuscles;
@@ -16,7 +16,7 @@ public class User {
 
     }
 
-    public User(String name, String bilkentMail, int bilID, String password, PersonalInfoScreen pi, ArrayList<String> selectedMuscles){
+    public User(String name, String bilkentMail, String bilID, String password, PersonalInfoScreen pi, ArrayList<String> selectedMuscles){
         this.name = name;
         this.bilkentMail = bilkentMail;
         this.bilID = bilID;
@@ -30,4 +30,5 @@ public class User {
     public String getUserName(){
         return this.name;
     }
+    public String getBilID(){return this.bilID;}
 }

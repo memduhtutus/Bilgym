@@ -6,45 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".CreateEventScreen">
 
-    <TextView
-        android:id="@+id/textView10"
+    <EditText
+        android:id="@+id/editTextEventSportType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="105dp"
-        android:text="Select Sport Type"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="Sport Type"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="138dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="40dp"
-        android:text="Enter people number"
-        app:layout_constraintStart_toStartOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="77dp"
-        android:text="ReservationHour"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
     <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="179dp"
-        android:layout_height="37dp"
-        android:layout_marginEnd="16dp"
+        android:id="@+id/editTextEventAlreadyJoined"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:ems="10"
-        android:hint="How many people"
+        android:hint="Number Of People You Have"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.647"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEventQuota" />
 
+    <EditText
+        android:id="@+id/editTextEventQuota"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Number Of People You Are Looking"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEventSportType" />
+
+    <EditText
+        android:id="@+id/editTextEventHour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Hour"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEventAlreadyJoined" />
 </androidx.constraintlayout.widget.ConstraintLayout>
