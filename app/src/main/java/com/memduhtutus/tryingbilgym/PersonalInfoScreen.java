@@ -52,7 +52,7 @@ public class PersonalInfoScreen extends AppCompatActivity {
             textView1.setText("Your age: ");
         }
         else{
-            textView2.setText("Your Age: " + storedAge);
+            textView1.setText("Your Age: " + storedAge);
         }
 
         String storedGender = sharedPreferences.getString("storedGender", "-");
