@@ -7,4 +7,31 @@
     android:background="#CDD5E0"
     tools:context=".AvailableEventScreen">
 
+    <TextView
+        android:id="@+id/availableEvents"
+        android:layout_width="398dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showEvents"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/showEvents"
+        android:layout_width="176dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="23dp"
+        android:onClick="showEventsClicked"
+        android:text="Show Events"
+        app:layout_constraintBottom_toTopOf="@+id/availableEvents"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
