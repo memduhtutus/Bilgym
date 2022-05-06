@@ -32,6 +32,7 @@ public class PersonalInfoScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_personal_info_screen);
         binding = ActivityPersonalInfoScreenBinding.inflate(getLayoutInflater());
 
         editText1 = findViewById(R.id.editTextTextPersonName8);
