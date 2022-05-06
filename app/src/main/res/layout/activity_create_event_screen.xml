@@ -14,6 +14,7 @@
         android:ems="10"
         android:hint="Sport Type"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,6 +27,7 @@
         android:ems="10"
         android:hint="Number Of People You Have"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,6 +41,7 @@
         android:ems="10"
         android:hint="Number Of People You Are Looking"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEventSportType" />
@@ -51,7 +54,22 @@
         android:ems="10"
         android:hint="Hour"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEventAlreadyJoined" />
+
+    <Button
+        android:id="@+id/eventDone"
+        android:layout_width="136dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="146dp"
+        android:layout_marginEnd="139dp"
+        android:layout_marginBottom="124dp"
+        android:onClick="eventDoneClicked"
+        android:text="DONE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,7 @@ public class CreateEventScreen extends AppCompatActivity {
         setContentView(R.layout.activity_create_event_screen);
     }
 
-    public void createEventClicked(View view){
+    public void eventDoneClicked(View view){
         String sportType = binding.editTextEventSportType.getText().toString();
         int alreadyJoined = Integer.parseInt(binding.editTextEventAlreadyJoined.getText().toString());
         int peopleLooking = Integer.parseInt(binding.editTextEventQuota.getText().toString());
@@ -29,6 +29,6 @@ public class CreateEventScreen extends AppCompatActivity {
         FirebaseUser u = FirebaseAuth.getInstance().getCurrentUser();
         Event e = new Event(alreadyJoined, sportType, mh, peopleLooking);
         ms.createNewEvent(u, e);
-        ms.events.add(e);
+        MatchmakingScreen.events.add(e);
     }
 }
