@@ -64,6 +64,7 @@ public class SignUpScreen extends AppCompatActivity {
             });
 
         }
+
     }
     public String getEmail(){
         return email;

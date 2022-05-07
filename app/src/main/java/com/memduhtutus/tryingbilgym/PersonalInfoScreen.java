@@ -1,6 +1,5 @@
 package com.memduhtutus.tryingbilgym;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -12,39 +11,43 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.memduhtutus.tryingbilgym.databinding.ActivityPersonalInfoScreenBinding;
 
 
 public class PersonalInfoScreen extends AppCompatActivity {
-    EditText editText1;
-    EditText editText2;
-    EditText editText3;
-    EditText editText4;
+    EditText editTextAge;
+    EditText editTextGender;
+    EditText editTextHeight;
+    EditText editTextWeight;
 
     TextView textView1;
     TextView textView2;
     TextView textView3;
     TextView textView4;
 
+    ActivityPersonalInfoScreenBinding binding;
     SharedPreferences sharedPreferences;
+    FirebaseAuth auth;
 
-    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_personal_info_screen);
+        View view = binding.getRoot();
+        setContentView(view);
+        binding = ActivityPersonalInfoScreenBinding.inflate(getLayoutInflater());
+        auth = FirebaseAuth.getInstance();
 
+        editTextAge = binding.editTextAge; //editTextTextPersonName8
+        editTextGender = binding.editTextGender;
+        editTextHeight = binding.editTextHeight;
+        editTextWeight = binding.editTextWeight;
 
-        editText1 = findViewById(R.id.editTextTextPersonName8);
-        editText2 = findViewById(R.id.editTextTextPersonName6);
-        editText3 = findViewById(R.id.editTextTextPersonName7);
-        editText4 = findViewById(R.id.editTextTextPersonName5);
-
-        textView1 = findViewById(R.id.textView5);
-        textView2 = findViewById(R.id.textView13);
-        textView3 = findViewById(R.id.textView14);
-        textView4 = findViewById(R.id.textView15);
+        textView1 = binding.textViewAge;
+        textView2 = binding.textViewGender;
+        textView3 = binding.textViewHeight;
+        textView4 = binding.textViewWeight;
 
         sharedPreferences = this.getSharedPreferences("com.memduhtutus.tryingbilgym", Context.MODE_PRIVATE);
 
@@ -86,26 +89,27 @@ public class PersonalInfoScreen extends AppCompatActivity {
         startActivity(intent);
         finish();
 
-        if(    editText1.getText().toString().matches("") || editText1.getText().toString().matches("") ||
-                editText1.getText().toString().matches("") || editText1.getText().toString().matches("") ){
+        if(    editTextAge.getText().toString().matches("") || editTextGender.getText().toString().matches("") ||
+                editTextHeight.getText().toString().matches("") || editTextWeight.getText().toString().matches("") ){
             Toast.makeText(getApplicationContext(),"Spaces cannot be empty", Toast.LENGTH_LONG).show();
         }
         else{
             int userAge = Integer.parseInt(textView1.getText().toString());
-            textView1.setText("Your age: " + userAge);
             sharedPreferences.edit().putInt("storedAge", userAge).apply();
+            textView1.setText("Your age: " + userAge);
 
             String gender = String.valueOf(textView2.getText());
-            textView2.setText("Your Gender: " + gender);
             sharedPreferences.edit().putString("storedGender", gender).apply();
+            textView2.setText("Your Gender: " + gender);
 
             int height = Integer.parseInt(textView3.getText().toString());
-            textView3.setText("Your Height: " + height);
             sharedPreferences.edit().putInt("storedHeight", height).apply();
+            textView3.setText("Your Height: " + height);
 
             int weight = Integer.parseInt(textView4.getText().toString());
-            textView4.setText("Your Weight: " + weight);
             sharedPreferences.edit().putInt("storedWeight", weight).apply();
+            textView4.setText("Your Weight: " + weight);
+
         }
     }
 }

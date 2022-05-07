@@ -9,10 +9,10 @@
     tools:context=".PersonalInfoScreen">
 
     <EditText
-        android:id="@+id/editTextTextPersonName8"
+        android:id="@+id/editTextAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="Age"
         android:inputType="textPersonName"
@@ -23,25 +23,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/editTextGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="Gender: Male/Female"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName7"
+        app:layout_constraintBottom_toTopOf="@+id/editTextHeight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAge"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName7"
+        android:id="@+id/editTextHeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="60dp"
         android:ems="10"
         android:hint="Height"
         android:inputType="textPersonName"
@@ -49,12 +50,13 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextAge" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/editTextWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="Weight"
         android:inputType="textPersonName"
@@ -63,63 +65,59 @@
         app:layout_constraintBottom_toTopOf="@+id/Done"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7"
+        app:layout_constraintTop_toBottomOf="@+id/editTextHeight"
         app:layout_constraintVertical_bias="0.037" />
 
     <Button
         android:id="@+id/Done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="328dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginBottom="240dp"
         android:onClick="doneClicked"
         android:text="Done"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextHeight" />
 
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="125dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="100dp"
-        android:text="Your Age:"
-        android:textAlignment="center"
+        android:id="@+id/textViewAge"
+        android:layout_width="146dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="60dp"
+        android:text="Your Current Age:"
+
+
         android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editTextWeight"
         app:layout_constraintTop_toBottomOf="@+id/Done" />
 
     <TextView
-        android:id="@+id/textView13"
-        android:layout_width="125dp"
-        android:layout_height="35dp"
+        android:id="@+id/textViewGender"
+        android:layout_width="145dp"
+        android:layout_height="30dp"
         android:text="Your Gender: "
-        android:textAlignment="center"
         android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintStart_toStartOf="@+id/textViewAge"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAge" />
 
     <TextView
-        android:id="@+id/textView14"
-        android:layout_width="125dp"
-        android:layout_height="35dp"
-        android:text="Your Height:"
-        android:textAlignment="center"
+        android:id="@+id/textViewHeight"
+        android:layout_width="146dp"
+        android:layout_height="30dp"
+        android:text="Your Current Height:"
         android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintStart_toStartOf="@+id/textViewGender"
+        app:layout_constraintTop_toBottomOf="@+id/textViewGender" />
 
     <TextView
-        android:id="@+id/textView15"
-        android:layout_width="125dp"
-        android:layout_height="35dp"
-        android:text="Your Weight: "
-        android:textAlignment="center"
+        android:id="@+id/textViewWeight"
+        android:layout_width="146dp"
+        android:layout_height="30dp"
+        android:text="Your Current Weight: "
         android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintStart_toStartOf="@+id/textViewHeight"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHeight" />
 </androidx.constraintlayout.widget.ConstraintLayout>
