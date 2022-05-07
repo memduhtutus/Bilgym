@@ -16,15 +16,10 @@ import com.memduhtutus.tryingbilgym.databinding.ActivityPersonalInfoScreenBindin
 
 
 public class PersonalInfoScreen extends AppCompatActivity {
-    EditText editTextAge;
-    EditText editTextGender;
-    EditText editTextHeight;
-    EditText editTextWeight;
+    EditText editTextAge,editTextGender,editTextHeight,editTextWeight;
 
-    TextView textView1;
-    TextView textView2;
-    TextView textView3;
-    TextView textView4;
+
+    TextView textView1,textView2,textView3,textView4;
 
     ActivityPersonalInfoScreenBinding binding;
     SharedPreferences sharedPreferences;
@@ -85,9 +80,7 @@ public class PersonalInfoScreen extends AppCompatActivity {
     }
 
     public void doneClicked(View view){
-        Intent intent = new Intent(PersonalInfoScreen.this, MainScreen.class);
-        startActivity(intent);
-        finish();
+
 
         if(    editTextAge.getText().toString().matches("") || editTextGender.getText().toString().matches("") ||
                 editTextHeight.getText().toString().matches("") || editTextWeight.getText().toString().matches("") ){
@@ -111,5 +104,8 @@ public class PersonalInfoScreen extends AppCompatActivity {
             textView4.setText("Your Weight: " + weight);
 
         }
+        Intent intent = new Intent(PersonalInfoScreen.this, MainScreen.class);
+        startActivity(intent);
+        finish();
     }
 }
