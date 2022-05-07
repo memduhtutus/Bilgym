@@ -17,7 +17,6 @@ public class SettingPassword extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseUser user;
     String oldPassword, newPassword, correctionText;
-    User ourUser = new User();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,6 @@ public class SettingPassword extends AppCompatActivity {
         user = auth.getCurrentUser();
 
     }
-
     public void doneClicked(View view){
         oldPassword = binding.currentPassword.getText().toString();
         newPassword = binding.newPassword.getText().toString();
@@ -52,7 +50,5 @@ public class SettingPassword extends AppCompatActivity {
             Intent intent = new Intent(SettingPassword.this, MainScreen.class);
             startActivity(intent);
         }
-
-
     }
 }
