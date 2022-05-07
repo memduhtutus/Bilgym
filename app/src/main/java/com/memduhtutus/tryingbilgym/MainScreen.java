@@ -6,12 +6,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainScreen extends AppCompatActivity {
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
+        auth = FirebaseAuth.getInstance();
     }
     public void gymAppoClicked(View view){
 
@@ -40,6 +45,9 @@ public class MainScreen extends AppCompatActivity {
 
     }
     public void logOutClicked (View view){
+        Intent intent = new Intent(MainScreen.this,WelcomeScreen.class);
+        startActivity(intent);
+        finish();
 
     }
 }

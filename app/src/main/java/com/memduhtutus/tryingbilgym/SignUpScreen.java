@@ -45,7 +45,7 @@ public class SignUpScreen extends AppCompatActivity {
         password = binding.editTextTextPassword.getText().toString();
         bilkentId = binding.EditTextBilkentID.getText().toString();
         if(email.equals("") || password.equals("") ||bilkentId.equals("") || name.equals("")){
-            Toast.makeText(this, "", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Spaces cannot be blank.", Toast.LENGTH_LONG).show();
         }
         else {
             auth.createUserWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
@@ -64,6 +64,7 @@ public class SignUpScreen extends AppCompatActivity {
             });
 
         }
+
     }
     public String getEmail(){
         return email;
