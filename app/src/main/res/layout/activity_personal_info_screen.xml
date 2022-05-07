@@ -9,7 +9,7 @@
     tools:context=".PersonalInfoScreen">
 
     <EditText
-        android:id="@+id/editTextTextPersonName8"
+        android:id="@+id/editTextUserAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/editTextUserGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -31,14 +31,14 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName7"
+        app:layout_constraintBottom_toTopOf="@+id/editTextUserHeight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUserAge"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName7"
+        android:id="@+id/editTextUserHeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
@@ -49,10 +49,10 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextUserAge" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/editTextUserWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -63,7 +63,7 @@
         app:layout_constraintBottom_toTopOf="@+id/Done"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUserHeight"
         app:layout_constraintVertical_bias="0.037" />
 
     <Button
@@ -79,7 +79,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textViewUserAge"
         android:layout_width="125dp"
         android:layout_height="35dp"
         android:layout_marginTop="100dp"
@@ -91,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@+id/Done" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/textViewUserGender"
         android:layout_width="125dp"
         android:layout_height="35dp"
         android:text="Your Gender: "
@@ -99,10 +99,10 @@
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUserAge" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/textViewUserHeight"
         android:layout_width="125dp"
         android:layout_height="35dp"
         android:text="Your Height:"
@@ -110,10 +110,10 @@
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUserGender" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/textViewUserWeight"
         android:layout_width="125dp"
         android:layout_height="35dp"
         android:text="Your Weight: "
@@ -121,5 +121,20 @@
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUserHeight" />
+
+    <TextView
+        android:id="@+id/textViewUserBMI"
+        android:layout_width="124dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginEnd="143dp"
+        android:layout_marginBottom="53dp"
+        android:text="Your BMI: "
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUserWeight" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,82 +3,47 @@ package com.memduhtutus.tryingbilgym;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.memduhtutus.tryingbilgym.databinding.ActivityPersonalInfoScreenBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.memduhtutus.tryingbilgym.databinding.ActivityCreateEventScreenBinding;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 
 public class PersonalInfoScreen extends AppCompatActivity {
-    EditText editText1;
-    EditText editText2;
-    EditText editText3;
-    EditText editText4;
-
-    TextView textView1;
-    TextView textView2;
-    TextView textView3;
-    TextView textView4;
-
-    SharedPreferences sharedPreferences;
-
-    
+    private EditText editAge, editGender, editHeight, editWeight;
+    private String txtGender;
+    private int txtAge, txtHeight, txtWeight;
+    private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
+    private HashMap<String, Object> mData;
+    private FirebaseUser mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_info_screen);
 
+        editAge = (EditText) findViewById(R.id.editTextUserAge);
+        editGender = (EditText) findViewById(R.id.editTextUserGender);
+        editHeight = (EditText) findViewById(R.id.editTextUserHeight);
+        editWeight = (EditText) findViewById(R.id.editTextUserWeight);
+        mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        editText1 = findViewById(R.id.editTextTextPersonName8);
-        editText2 = findViewById(R.id.editTextTextPersonName6);
-        editText3 = findViewById(R.id.editTextTextPersonName7);
-        editText4 = findViewById(R.id.editTextTextPersonName5);
-
-        textView1 = findViewById(R.id.textView5);
-        textView2 = findViewById(R.id.textView13);
-        textView3 = findViewById(R.id.textView14);
-        textView4 = findViewById(R.id.textView15);
-
-        sharedPreferences = this.getSharedPreferences("com.memduhtutus.tryingbilgym", Context.MODE_PRIVATE);
-
-        int storedAge = sharedPreferences.getInt("storedAge",0);
-        if(storedAge==0){
-            textView1.setText("Your age: ");
-        }
-        else{
-            textView1.setText("Your Age: " + storedAge);
-        }
-
-        String storedGender = sharedPreferences.getString("storedGender", "-");
-        if(storedGender.equals("")){
-            textView2.setText("Your Gender: ");
-        }
-        else{
-            textView2.setText("Your Gender: " + storedGender);
-        }
-
-        int storedHeight = sharedPreferences.getInt("storedHeight",0);
-        if(storedHeight==0){
-            textView3.setText("Your Height: ");
-        }
-        else{
-            textView3.setText("Your Height: " + storedHeight);
-        }
-
-        int storedWeight = sharedPreferences.getInt("storedWeight",0);
-        if(storedWeight==0){
-            textView4.setText("Your Weight: ");
-        }
-        else{
-            textView4.setText("Your Weight: " + storedWeight);
-        }
     }
 
     public void doneClicked(View view){
@@ -86,26 +51,28 @@ public class PersonalInfoScreen extends AppCompatActivity {
         startActivity(intent);
         finish();
 
-        if(    editText1.getText().toString().matches("") || editText1.getText().toString().matches("") ||
-                editText1.getText().toString().matches("") || editText1.getText().toString().matches("") ){
-            Toast.makeText(getApplicationContext(),"Spaces cannot be empty", Toast.LENGTH_LONG).show();
-        }
-        else{
-            int userAge = Integer.parseInt(textView1.getText().toString());
-            textView1.setText("Your age: " + userAge);
-            sharedPreferences.edit().putInt("storedAge", userAge).apply();
+        txtAge = Integer.parseInt(editAge.getText().toString());
+        txtGender = editGender.getText().toString();
+        txtHeight = Integer.parseInt(editHeight.getText().toString());
+        txtWeight = Integer.parseInt(editWeight.getText().toString());
 
-            String gender = String.valueOf(textView2.getText());
-            textView2.setText("Your Gender: " + gender);
-            sharedPreferences.edit().putString("storedGender", gender).apply();
+        mData = new HashMap();
+        mUser = mAuth.getCurrentUser();
+        mData.put("User's Age", txtAge);
+        mData.put("User's Gender", txtGender);
+        mData.put("User's Height", txtHeight);
+        mData.put("User's Weight", txtWeight);
 
-            int height = Integer.parseInt(textView3.getText().toString());
-            textView3.setText("Your Height: " + height);
-            sharedPreferences.edit().putInt("storedHeight", height).apply();
-
-            int weight = Integer.parseInt(textView4.getText().toString());
-            textView4.setText("Your Weight: " + weight);
-            sharedPreferences.edit().putInt("storedWeight", weight).apply();
-        }
+        mDatabase.child("Users' Personal Info").child(mUser.getUid())
+                .setValue(mData)
+                .addOnCompleteListener(PersonalInfoScreen.this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful())
+                            Toast.makeText(PersonalInfoScreen.this, "Personal info are successfully updated.", Toast.LENGTH_SHORT).show();
+                        else
+                            Toast.makeText(PersonalInfoScreen.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }
