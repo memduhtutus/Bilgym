@@ -29,33 +29,45 @@ public class GetAppointmentScreen extends AppCompatActivity {
     RadioGroup radioGroup;
     RadioButton radioButton;
     String txtHour;
-    private Button btnDisplay;
+    private Button buttonApply;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
     private HashMap<String, Object> mData;
     private FirebaseUser mUser;
-    gymHour hour1, hour2, hour3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_appointment_screen);
         radioGroup = findViewById(R.id.radioGroupHours);
-        addListenerOnButton();
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-
-        Button buttonApply = findViewById(R.id.buttonApplyHour);
+        /*buttonApply = findViewById(R.id.buttonApplyHour);
         buttonApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int radioId = radioGroup.getCheckedRadioButtonId();
 
                 radioButton = findViewById(radioId);
+
+                Toast.makeText(GetAppointmentScreen.this,
+                        "Selected Hour: " + radioButton.getText(), Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
+    }
+
+    public void buttonApplyHourClicked(View view){
+        int radioId = radioGroup.getCheckedRadioButtonId();
+
+        radioButton = findViewById(radioId);
+
+        Toast.makeText(GetAppointmentScreen.this,
+                "Selected Hour: " + radioButton.getText(), Toast.LENGTH_SHORT).show();
     }
 
     public void buttonGetAppointmentClicked(View view){
+        int radioId = radioGroup.getCheckedRadioButtonId();
+        radioButton = findViewById(radioId);
         txtHour = radioButton.getText().toString();
         mData = new HashMap();
         mUser = mAuth.getCurrentUser();
@@ -74,7 +86,7 @@ public class GetAppointmentScreen extends AppCompatActivity {
                 });
     }
 
-    public void addListenerOnButton() {
+    /*public void addListenerOnButton() {
         btnDisplay = (Button) findViewById(R.id.buttonApplyHour);
 
         btnDisplay.setOnClickListener(new OnClickListener() {
@@ -94,5 +106,5 @@ public class GetAppointmentScreen extends AppCompatActivity {
             }
 
         });
-    }
+    }*/
 }
