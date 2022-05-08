@@ -8,7 +8,7 @@
     tools:context=".AvailableEventScreen">
 
     <TextView
-        android:id="@+id/availableEvents"
+        android:id="@+id/textViewAvailableEvents"
         android:layout_width="398dp"
         android:layout_height="0dp"
         android:layout_marginStart="2dp"
@@ -30,7 +30,7 @@
         android:layout_marginBottom="23dp"
         android:onClick="showEventsClicked"
         android:text="Show Events"
-        app:layout_constraintBottom_toTopOf="@+id/availableEvents"
+        app:layout_constraintBottom_toTopOf="@+id/textViewAvailableEvents"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -11,16 +11,27 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.memduhtutus.tryingbilgym.databinding.ActivityMainBinding;
 import com.memduhtutus.tryingbilgym.databinding.ActivitySignUpScreenBinding;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+
+import java.util.HashMap;
 
 public class SignUpScreen extends AppCompatActivity {
     private ActivitySignUpScreenBinding binding;
     private FirebaseAuth auth;
+    private FirebaseUser mUser;
+    private DatabaseReference mDatabase;
+    private HashMap<String, Object> mData;
 
     public String name, email, password, bilkentId;
 
@@ -34,7 +45,7 @@ public class SignUpScreen extends AppCompatActivity {
         binding = ActivitySignUpScreenBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         auth = FirebaseAuth.getInstance();
     }
 
@@ -51,6 +62,25 @@ public class SignUpScreen extends AppCompatActivity {
             auth.createUserWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                 @Override
                 public void onSuccess(AuthResult authResult) {
+                    mUser = auth.getCurrentUser();
+                    mData = new HashMap<>();
+                    mData.put("Name", name);
+                    mData.put("Bilkent ID", bilkentId);
+                    mData.put("Email", email);
+                    mData.put("Password", password);
+
+                    mDatabase.child("Users").child(mUser.getUid())
+                            .setValue(mData)
+                            .addOnCompleteListener(SignUpScreen.this, new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful())
+                                        Toast.makeText(SignUpScreen.this, "Your profile is successfully created.", Toast.LENGTH_SHORT).show();
+                                    else
+                                        Toast.makeText(SignUpScreen.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
                     Intent intent = new Intent(SignUpScreen.this, MainScreen.class);
                     startActivity(intent);
                     finish();

@@ -58,9 +58,7 @@ public class GetAppointmentScreen extends AppCompatActivity {
 
     public void buttonApplyHourClicked(View view){
         int radioId = radioGroup.getCheckedRadioButtonId();
-
         radioButton = findViewById(radioId);
-
         Toast.makeText(GetAppointmentScreen.this,
                 "Selected Hour: " + radioButton.getText(), Toast.LENGTH_SHORT).show();
     }

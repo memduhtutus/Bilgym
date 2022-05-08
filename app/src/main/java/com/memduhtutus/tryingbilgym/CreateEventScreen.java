@@ -12,7 +12,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.memduhtutus.tryingbilgym.databinding.ActivityCreateEventScreenBinding;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -53,7 +52,7 @@ public class CreateEventScreen extends AppCompatActivity {
         mData.put("Hour", txtHour);
         mData.put("Left Quota", txtPeopleLooking);
 
-        mDatabase.child("Events").child(mUser.getUid())
+        mDatabase.child("Events")
                 .setValue(mData)
                 .addOnCompleteListener(CreateEventScreen.this, new OnCompleteListener<Void>() {
                     @Override
