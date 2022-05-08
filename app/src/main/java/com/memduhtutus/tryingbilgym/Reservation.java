@@ -2,7 +2,7 @@ package com.memduhtutus.tryingbilgym;
 import java.util.HashMap;
 import java.util.Map;
 public class Reservation {
-    public static gymHour[] hours = new gymHour[]{new gymHour(3,"10:30-11:30"),new gymHour(3,"11:30-12:30"),new gymHour(3,"12:30-13:30")};
+    public static gymHour[] hours = new gymHour[]{new gymHour("10:30-11:30"),new gymHour("11:30-12:30"),new gymHour("12:30-13:30")};
     public static boolean[] availability;
 
     int day; //0 = today, 1 = tomorrow

@@ -45,7 +45,6 @@ public class CreateEventScreen extends AppCompatActivity {
         txtAlreadyJoined = Integer.parseInt(editAlreadyJoined.getText().toString());
         txtPeopleLooking = Integer.parseInt(editPeopleLooking.getText().toString());
         txtHour = editHour.getText().toString();
-        matchmakingHour mh = new matchmakingHour(txtHour);
 
         mData = new HashMap();
         mUser = mAuth.getCurrentUser();

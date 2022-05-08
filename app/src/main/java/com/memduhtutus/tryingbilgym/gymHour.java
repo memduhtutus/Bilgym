@@ -1,10 +1,9 @@
 package com.memduhtutus.tryingbilgym;
 
 public class gymHour {
-    int quota;
+    static int quota = 3;
     String time;
-    public gymHour(int q , String t){
-        quota = q;
+    public gymHour(String t){
         time = t;
     }
 }
