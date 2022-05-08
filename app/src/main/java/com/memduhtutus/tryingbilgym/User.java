@@ -7,8 +7,6 @@ public class User {
     String bilkentMail;
     String bilID;
     String password;
-    PersonalInfoScreen pi;
-    ArrayList<String> selectedMuscles;
     ArrayList<Event> joinedEvents;
     ArrayList<Reservation> joinedReservations;
 
@@ -16,19 +14,26 @@ public class User {
 
     }
 
-    public User(String name, String bilkentMail, String bilID, String password, PersonalInfoScreen pi, ArrayList<String> selectedMuscles){
+    public User(String name, String bilkentMail, String bilID, String password){
         this.name = name;
         this.bilkentMail = bilkentMail;
         this.bilID = bilID;
         this.password = password;
-        this.pi = new PersonalInfoScreen();
-        this.selectedMuscles = new ArrayList<>();
-        this.joinedEvents = new ArrayList<>();
-        this.joinedReservations = new ArrayList<>();
     }
 
-    public String getUserName(){
-        return this.name;
+    public String getPassword() {
+        return password;
     }
-    public String getBilID(){return this.bilID;}
+
+    public String getName() {
+        return name;
+    }
+
+    public String getBilkentMail() {
+        return bilkentMail;
+    }
+
+    public String getBilID() {
+        return bilID;
+    }
 }

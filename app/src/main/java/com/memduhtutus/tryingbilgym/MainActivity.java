@@ -27,7 +27,7 @@ public class MainActivity {
     public MainActivity(DatabaseReference database) {
         mDatabase = FirebaseDatabase.getInstance().getReference();
     }
-    public void createNewUser(String name, String bilkentMail, String bilID, String password, PersonalInfoScreen pi, ArrayList<String> selectedMuscles){
+    /*public void createNewUser(String name, String bilkentMail, String bilID, String password, PersonalInfoScreen pi, ArrayList<String> selectedMuscles){
         User user = new User(name, bilkentMail, bilID, password, pi, selectedMuscles);
         mDatabase.child("users").child(name).setValue(user);
     }
@@ -47,9 +47,9 @@ public class MainActivity {
                     public void onFailure(@NonNull Exception e) {
                     }
                 });
-    }
+    }*/
 
-    public void createEvent(int alreadyJoined, String SportType, matchmakingHour hour, int quota) {
+    /*public void createEvent(int alreadyJoined, String SportType, matchmakingHour hour, int quota) {
 
         String key = mDatabase.child("events").push().getKey();
         Event e = new Event(alreadyJoined, SportType, hour, quota);
@@ -61,7 +61,7 @@ public class MainActivity {
         childUpdates.put("/user-events/" + uid + "/" + key, eventValues);
 
         mDatabase.updateChildren(childUpdates);
-    }
+    }*/
 
     private void createNewReservation(String userID, int day, gymHour hour){
         String key = mDatabase.child("reservations").push().getKey();
