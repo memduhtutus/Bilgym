@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.security.Key;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,7 +47,7 @@ public class AvailableEventScreen extends AppCompatActivity {
                 String result = "";
                 txtAvailableEvents = findViewById(R.id.textViewAvailableEvents);
                 for(DataSnapshot snp : snapshot.getChildren()){
-                    result += snp.getKey() + ": " + snp.getValue() + "\n";
+                    String key = snp.getKey();
                 }
                 txtAvailableEvents.setText(result);
             }

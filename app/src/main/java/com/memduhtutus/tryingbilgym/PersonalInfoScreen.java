@@ -31,6 +31,7 @@ public class PersonalInfoScreen extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private HashMap<String, Object> mData;
     private FirebaseUser mUser;
+    TextView textViewAge, textViewGender, textViewHeight, textViewWeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +42,16 @@ public class PersonalInfoScreen extends AppCompatActivity {
         editGender = (EditText) findViewById(R.id.editTextUserGender);
         editHeight = (EditText) findViewById(R.id.editTextUserHeight);
         editWeight = (EditText) findViewById(R.id.editTextUserWeight);
+        textViewAge = findViewById(R.id.textViewUserAge);
+        textViewGender = findViewById(R.id.textViewUserGender);
+        textViewHeight = findViewById(R.id.textViewUserHeight);
+        textViewWeight = findViewById(R.id.textViewUserWeight);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
     }
 
     public void doneClicked(View view){
-        Intent intent = new Intent(PersonalInfoScreen.this, MainScreen.class);
-        startActivity(intent);
-        finish();
 
         txtAge = Integer.parseInt(editAge.getText().toString());
         txtGender = editGender.getText().toString();
@@ -74,5 +76,9 @@ public class PersonalInfoScreen extends AppCompatActivity {
                             Toast.makeText(PersonalInfoScreen.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+        textViewAge.setText("Your age: " + txtAge);
+        textViewGender.setText("Your gender: " + txtGender);
+        textViewHeight.setText("Your height: " + txtHeight);
+        textViewWeight.setText("Your weight: " + txtWeight);
     }
 }

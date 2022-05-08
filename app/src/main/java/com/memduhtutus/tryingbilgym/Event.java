@@ -4,10 +4,10 @@ import java.util.Map;
 public class Event {
     int alreadyJoined;
     String SportType;
-    matchmakingHour hour;
+    String hour;
     int quota;
 
-    public Event(int alreadyJoined, String SportType, matchmakingHour matchMakingHour, int quota) {
+    public Event(int alreadyJoined, String SportType, String matchMakingHour, int quota) {
         this.alreadyJoined = alreadyJoined;
         this.SportType = SportType;
         this.hour = matchMakingHour;
@@ -18,18 +18,8 @@ public class Event {
         return this.quota;
     }
     public String getSportType(){return this.SportType;}
-    public matchmakingHour getHour(){return this.hour;}
+    public String getHour(){return this.hour;}
     public int getAlreadyJoined(){return this.alreadyJoined;}
-
-    public Map<String, Object> toMap() {
-        HashMap<String, Object> result = new HashMap<>();
-        result.put("Number Of Joined People", alreadyJoined);
-        result.put("Sport Type", SportType);
-        result.put("Hour", hour);
-        result.put("Left Quota", quota);
-
-        return result;
-    }
 
 
 }

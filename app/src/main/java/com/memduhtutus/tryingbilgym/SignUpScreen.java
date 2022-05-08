@@ -34,7 +34,7 @@ public class SignUpScreen extends AppCompatActivity {
     private HashMap<String, Object> mData;
 
     public String name, email, password, bilkentId;
-
+    public User user;
 
     private FirebaseAuth mAuth;
 
@@ -63,14 +63,15 @@ public class SignUpScreen extends AppCompatActivity {
                 @Override
                 public void onSuccess(AuthResult authResult) {
                     mUser = auth.getCurrentUser();
-                    mData = new HashMap<>();
+                    /*mData = new HashMap<>();
                     mData.put("Name", name);
                     mData.put("Bilkent ID", bilkentId);
                     mData.put("Email", email);
-                    mData.put("Password", password);
+                    mData.put("Password", password);*/
 
+                    user = new User(name, email, bilkentId, password);
                     mDatabase.child("Users").child(mUser.getUid())
-                            .setValue(mData)
+                            .setValue(user)
                             .addOnCompleteListener(SignUpScreen.this, new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {

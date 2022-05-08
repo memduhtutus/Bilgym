@@ -40,9 +40,8 @@ public class MatchmakingScreen extends AppCompatActivity implements HandleEvent 
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
         MainActivity ma = new MainActivity(db);
         String uid = FirebaseAuth.getInstance().getUid();
-        ma.createEvent(0, e.getSportType(), e.getHour(), e.getQuota());
+        //ma.createEvent(0, e.getSportType(), e.getHour(), e.getQuota());
         events.add(e);
-
     }
 
     @Override
