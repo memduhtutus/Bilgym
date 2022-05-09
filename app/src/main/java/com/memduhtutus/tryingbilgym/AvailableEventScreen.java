@@ -47,7 +47,13 @@ public class AvailableEventScreen extends AppCompatActivity {
                 String result = "";
                 txtAvailableEvents = findViewById(R.id.textViewAvailableEvents);
                 for(DataSnapshot snp : snapshot.getChildren()){
-                    String key = snp.getKey();
+                    result += snp.getKey() + "\n";
+                    String values = snp.getValue().toString();
+                    String[] valuesArr = values.split(",");
+
+                    for(String val : valuesArr){
+                        result += val + "\n";
+                    }
                 }
                 txtAvailableEvents.setText(result);
             }
