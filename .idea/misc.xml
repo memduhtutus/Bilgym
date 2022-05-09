@@ -3,21 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_about_us.xml" value="0.4" />
+        <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_about_us.xml" value="0.264" />
         <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_available_event_screen.xml" value="0.264" />
+        <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_back.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_biceps.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_cancel_screen.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_chesct.xml" value="0.1" />
         <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_chest.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_create_event_screen.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_get_appointment_screen.xml" value="0.4" />
         <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_gym_appointment_screen.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_leg.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_log_in_screen.xml" value="0.264" />
         <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_main.xml" value="0.21784420289855072" />
         <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_main_screen.xml" value="0.264" />
         <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_personal_info.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_personal_trainer_screen.xml" value="0.4" />
         <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_set_screen.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_shoulder.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_sign_up_screen.xml" value="0.4" />
+        <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_triceps.xml" value="0.4" />
         <entry key="..\:/Users/casper/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_welcomeScreen.xml" value="0.1" />
         <entry key="..\:/Users/cgtyk/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_about_us.xml" value="0.19293478260869565" />
         <entry key="..\:/Users/cgtyk/AndroidStudioProjects/TryingBilgym/app/src/main/res/layout/activity_available_event_screen.xml" value="0.19293478260869565" />

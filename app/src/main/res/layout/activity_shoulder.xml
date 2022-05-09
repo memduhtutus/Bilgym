@@ -8,8 +8,9 @@
 
     <ImageView
         android:id="@+id/imageView12"
-        android:layout_width="259dp"
-        android:layout_height="401dp"
+        android:layout_width="251dp"
+        android:layout_height="381dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,10 +20,11 @@
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="45dp"
         android:text="Dumbbell Front raise"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView12" />
 
@@ -30,6 +32,7 @@
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="Dumbbell Lateral raise"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,6 +43,7 @@
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="Seated Military Press"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
