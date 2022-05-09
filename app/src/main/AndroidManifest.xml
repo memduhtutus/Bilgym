@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TryingBilgym">
         <activity
+            android:name=".Leg"
+            android:exported="false" />
+        <activity
             android:name=".Shoulder"
             android:exported="false" />
         <activity

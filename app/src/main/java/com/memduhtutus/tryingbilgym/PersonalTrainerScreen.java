@@ -33,5 +33,9 @@ public class PersonalTrainerScreen extends AppCompatActivity {
         Intent intent = new Intent(PersonalTrainerScreen.this, Shoulder.class);
         startActivity(intent);
     }
+    public void legClicked(View view){
+        Intent intent = new Intent(PersonalTrainerScreen.this, Leg.class);
+        startActivity(intent);
+    }
 
 }

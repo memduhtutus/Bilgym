@@ -43,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Kemal Sarper Şahin"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="@+id/imageView10"
         app:layout_constraintStart_toStartOf="@+id/imageView10"
         app:layout_constraintTop_toBottomOf="@+id/imageView10" />
@@ -52,6 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="kemal.sahin@ug.bilkent.edu.tr"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="@+id/imageView10"
         app:layout_constraintStart_toStartOf="@+id/imageView10"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -116,6 +118,7 @@
         android:layout_marginEnd="70dp"
         android:layout_marginBottom="5dp"
         android:text="Kerim Eren"
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/textView17"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -127,6 +130,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="71dp"
         android:text="kerimeren17@gmail.com"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView8" />
