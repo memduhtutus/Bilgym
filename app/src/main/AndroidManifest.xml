@@ -25,9 +25,6 @@
             android:name=".Chest"
             android:exported="false" />
         <activity
-            android:name=".ChesctA"
-            android:exported="false" />
-        <activity
             android:name=".SettingPassword"
             android:exported="false" />
         <activity

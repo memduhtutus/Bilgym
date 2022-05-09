@@ -14,23 +14,23 @@ public class PersonalTrainerScreen extends AppCompatActivity {
         setContentView(R.layout.activity_personal_trainer_screen);
     }
     public void chestClicked (View view){
-        Intent intent = new Intent(PersonalTrainerScreen.this, );
+        Intent intent = new Intent(PersonalTrainerScreen.this, Chest.class);
         startActivity(intent);
     }
     public void bicepsClicked (View view){
-        Intent intent = new Intent(PersonalTrainerScreen.this, );
+        Intent intent = new Intent(PersonalTrainerScreen.this, Biceps.class);
         startActivity(intent);
     }
     public void tricepsClicked (View view){
-        Intent intent = new Intent(PersonalTrainerScreen.this, );
+        Intent intent = new Intent(PersonalTrainerScreen.this, Triceps.class);
         startActivity(intent);
     }
     public void backClicked (View view) {
-        Intent intent = new Intent(PersonalTrainerScreen.this, );
+        Intent intent = new Intent(PersonalTrainerScreen.this, Back.class);
         startActivity(intent);
     }
     public void shoulderClicked (View view){
-        Intent intent = new Intent(PersonalTrainerScreen.this, );
+        Intent intent = new Intent(PersonalTrainerScreen.this, Shoulder.class);
         startActivity(intent);
     }
 
