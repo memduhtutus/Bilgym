@@ -17,6 +17,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Document;
 
+import java.util.HashMap;
+
 public class CreateEventScreen extends AppCompatActivity {
     private EditText editSportType, editAlreadyJoined, editPeopleLooking, editHour;
     private String txtSportType, txtHour;
@@ -25,7 +27,7 @@ public class CreateEventScreen extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private FirebaseUser mUser;
     private Event mEvent;
-
+    private HashMap<String, Object> mData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,10 +46,19 @@ public class CreateEventScreen extends AppCompatActivity {
         txtPeopleLooking = Integer.parseInt(editPeopleLooking.getText().toString());
         txtHour = editHour.getText().toString();
 
+        mData = new HashMap();
+        mUser = mAuth.getCurrentUser();
+        mEvent = new Event(txtAlreadyJoined,txtSportType,txtHour, txtPeopleLooking);
+        mData.put("Creator of this event", mUser.getEmail());
+        mData.put("Number Of Joined People", txtAlreadyJoined);
+        mData.put("Sport Type", txtSportType);
+        mData.put("Hour", txtHour);
+        mData.put("Left Quota", txtPeopleLooking);
+
         mUser = mAuth.getCurrentUser();
         mEvent = new Event(txtAlreadyJoined,txtSportType,txtHour, txtPeopleLooking);
         mDatabase.child("Events").child(mUser.getUid())
-                .setValue(mEvent)
+                .setValue(mData)
                 .addOnCompleteListener(CreateEventScreen.this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -57,6 +68,5 @@ public class CreateEventScreen extends AppCompatActivity {
                             Toast.makeText(CreateEventScreen.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-
     }
 }

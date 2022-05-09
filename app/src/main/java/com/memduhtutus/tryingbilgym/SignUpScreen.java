@@ -63,11 +63,6 @@ public class SignUpScreen extends AppCompatActivity {
                 @Override
                 public void onSuccess(AuthResult authResult) {
                     mUser = auth.getCurrentUser();
-                    /*mData = new HashMap<>();
-                    mData.put("Name", name);
-                    mData.put("Bilkent ID", bilkentId);
-                    mData.put("Email", email);
-                    mData.put("Password", password);*/
 
                     user = new User(name, email, bilkentId, password);
                     mDatabase.child("Users").child(mUser.getUid())

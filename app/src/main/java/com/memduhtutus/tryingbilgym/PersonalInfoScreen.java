@@ -14,6 +14,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 import com.memduhtutus.tryingbilgym.databinding.ActivityCreateEventScreenBinding;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -60,10 +63,10 @@ public class PersonalInfoScreen extends AppCompatActivity {
 
         mData = new HashMap();
         mUser = mAuth.getCurrentUser();
-        mData.put("User's Age", txtAge);
-        mData.put("User's Gender", txtGender);
-        mData.put("User's Height", txtHeight);
-        mData.put("User's Weight", txtWeight);
+        mData.put("Your Age", txtAge);
+        mData.put("Your Gender", txtGender);
+        mData.put("Your Height", txtHeight);
+        mData.put("Your Weight", txtWeight);
 
         mDatabase.child("Users' Personal Info").child(mUser.getUid())
                 .setValue(mData)
@@ -76,9 +79,31 @@ public class PersonalInfoScreen extends AppCompatActivity {
                             Toast.makeText(PersonalInfoScreen.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-        textViewAge.setText("Your age: " + txtAge);
-        textViewGender.setText("Your gender: " + txtGender);
-        textViewHeight.setText("Your height: " + txtHeight);
-        textViewWeight.setText("Your weight: " + txtWeight);
+    }
+    public void buttonShowInfosClicked(View view){
+        mUser = mAuth.getCurrentUser();
+        mDatabase = FirebaseDatabase.getInstance().getReference("Users' Personal Info");
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String values;
+                String[] valuesArr = new String[4];
+                for(DataSnapshot snp : snapshot.getChildren()){
+                    if(snp.getKey().equals(mUser.getUid())){
+                        values = snp.getValue().toString();
+                        valuesArr = values.split(",");
+                    }
+                }
+                textViewAge.setText(valuesArr[0].substring(1));
+                textViewGender.setText(valuesArr[1]);
+                textViewHeight.setText(valuesArr[2]);
+                textViewWeight.setText(valuesArr[3].substring(0, valuesArr[3].length()-1));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(PersonalInfoScreen.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

@@ -26,10 +26,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GetAppointmentScreen extends AppCompatActivity {
-    RadioGroup radioGroup;
-    RadioButton radioButton;
-    String txtHour;
-    private Button buttonApply;
+    RadioGroup radioGroupHours, radioGroupDays;
+    RadioButton radioButtonHour, radioButtonDay;
+    String txtHour, txtDay;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
     private HashMap<String, Object> mData;
@@ -39,39 +38,40 @@ public class GetAppointmentScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_appointment_screen);
-        radioGroup = findViewById(R.id.radioGroupHours);
+        radioGroupHours = findViewById(R.id.radioGroupHours);
+        radioGroupDays = findViewById(R.id.radioGroupDays);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        /*buttonApply = findViewById(R.id.buttonApplyHour);
-        buttonApply.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int radioId = radioGroup.getCheckedRadioButtonId();
-
-                radioButton = findViewById(radioId);
-
-                Toast.makeText(GetAppointmentScreen.this,
-                        "Selected Hour: " + radioButton.getText(), Toast.LENGTH_SHORT).show();
-            }
-        });*/
     }
 
     public void buttonApplyHourClicked(View view){
-        int radioId = radioGroup.getCheckedRadioButtonId();
-        radioButton = findViewById(radioId);
+        int radioId = radioGroupHours.getCheckedRadioButtonId();
+        radioButtonHour = findViewById(radioId);
         Toast.makeText(GetAppointmentScreen.this,
-                "Selected Hour: " + radioButton.getText(), Toast.LENGTH_SHORT).show();
+                "Selected Hour: " + radioButtonHour.getText(), Toast.LENGTH_SHORT).show();
+    }
+
+    public void buttonApplyDayClicked(View view){
+        int radioId = radioGroupDays.getCheckedRadioButtonId();
+        radioButtonDay = findViewById(radioId);
+        Toast.makeText(GetAppointmentScreen.this,
+                "Selected Day: " + radioButtonDay.getText(), Toast.LENGTH_SHORT).show();
     }
 
     public void buttonGetAppointmentClicked(View view){
-        int radioId = radioGroup.getCheckedRadioButtonId();
-        radioButton = findViewById(radioId);
-        txtHour = radioButton.getText().toString();
+        int radioIdHour = radioGroupHours.getCheckedRadioButtonId();
+        radioButtonHour = (RadioButton) findViewById(radioIdHour);
+        txtHour = radioButtonHour.getText().toString();
+        int radioIdDay = radioGroupDays.getCheckedRadioButtonId();
+        radioButtonDay = (RadioButton) findViewById(radioIdDay);
+        txtDay = radioButtonDay.getText().toString();
         mData = new HashMap();
         mUser = mAuth.getCurrentUser();
-        mData.put("User:", mUser.getUid());
+        mData.put("User", mUser.getEmail());
+        mData.put("Hour", txtHour);
+        mData.put("Day", txtDay);
 
-        mDatabase.child("Reservations").child(txtHour)
+        mDatabase.child("Reservations").child(mUser.getUid())
                 .setValue(mData)
                 .addOnCompleteListener(GetAppointmentScreen.this, new OnCompleteListener<Void>() {
                     @Override
@@ -83,26 +83,4 @@ public class GetAppointmentScreen extends AppCompatActivity {
                     }
                 });
     }
-
-    /*public void addListenerOnButton() {
-        btnDisplay = (Button) findViewById(R.id.buttonApplyHour);
-
-        btnDisplay.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                // get selected radio button from radioGroup
-                int selectedId = radioGroup.getCheckedRadioButtonId();
-
-                // find the radiobutton by returned id
-                radioButton = (RadioButton) findViewById(selectedId);
-
-                Toast.makeText(GetAppointmentScreen.this,
-                        "Selected Hour: " + radioButton.getText(), Toast.LENGTH_SHORT).show();
-
-            }
-
-        });
-    }*/
 }

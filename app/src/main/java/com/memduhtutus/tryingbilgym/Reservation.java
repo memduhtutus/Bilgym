@@ -5,19 +5,19 @@ public class Reservation {
     public static gymHour[] hours = new gymHour[]{new gymHour("10:30-11:30"),new gymHour("11:30-12:30"),new gymHour("12:30-13:30")};
     public static boolean[] availability;
 
-    int day; //0 = today, 1 = tomorrow
-    gymHour specificHour;
+    String day; //0 = today, 1 = tomorrow
+    String specificHour;
 
-    public Reservation(int day , gymHour specificHour){
+    public Reservation(String day , String specificHour){
         this.day = day;
         this.specificHour = specificHour;
     }
 
-    public int getDay(){
+    public String getDay(){
         return day;
     }
 
-    public gymHour getSpecificHour(){
+    public String getSpecificHour(){
         return specificHour;
     }
 

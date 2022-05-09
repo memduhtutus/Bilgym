@@ -46,16 +46,20 @@ public class AvailableEventScreen extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String result = "";
                 txtAvailableEvents = findViewById(R.id.textViewAvailableEvents);
+                int i = 1;
                 for(DataSnapshot snp : snapshot.getChildren()){
-                    result += snp.getKey() + "\n";
+                    result += "          " + "Event " + i + "\n";
                     String values = snp.getValue().toString();
                     String[] valuesArr = values.split(",");
 
                     for(String val : valuesArr){
-                        result += val + "\n";
+                        result += "          " + val + "\n";
                     }
+                    i++;
+                    result += "\n\n";
                 }
                 txtAvailableEvents.setText(result);
+
             }
 
             @Override

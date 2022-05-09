@@ -5,26 +5,122 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CDD5E0"
-    tools:context=".CancelActivityScreen">
+    tools:context=".GetAppointmentScreen">
 
-    <Button
-        android:id="@+id/button13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="296dp"
-        android:onClick="cancelActivityDoneClicked"
-        android:text="done"
+    <TableRow
+        android:id="@+id/tableRow"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textAboutCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="165dp" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioGroup
+                android:id="@+id/radioGroupHours"
+                android:layout_width="360dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="224dp"
+                app:layout_constraintBottom_toTopOf="@+id/buttonApplyDay"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.333"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/radioButtonHour1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="10.30 - 11.30" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonHour2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12.00 - 13.00" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonHour3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="13.30 - 14.30"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/buttonApplyHour"
+                android:layout_width="156dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="140dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="141dp"
+                android:onClick="buttonApplyHourClicked"
+                android:text="Apply Hour"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroupHours" />
+
+            <Button
+                android:id="@+id/buttonCancelAppointment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="72dp"
+                android:onClick="buttonCancelAppointmentClicked"
+                android:text="Cancel Appoıntment"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupDays"
+                android:layout_width="363dp"
+                android:layout_height="106dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/buttonCancelAppointment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonApplyHour"
+                app:layout_constraintVertical_bias="0.106">
+
+                <RadioButton
+                    android:id="@+id/radioButtonToday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Today" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonTomorrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tomorrow" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/buttonApplyDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="31dp"
+                android:layout_marginBottom="141dp"
+                android:onClick="buttonApplyDayClicked"
+                android:text="APPLY DAY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/buttonCancelAppointment"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroupHours" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </TableRow>
 </androidx.constraintlayout.widget.ConstraintLayout>
