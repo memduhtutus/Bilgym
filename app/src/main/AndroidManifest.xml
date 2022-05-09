@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TryingBilgym">
         <activity
+            android:name=".ChesctA"
+            android:exported="false" />
+        <activity
             android:name=".SettingPassword"
             android:exported="false" />
         <activity
