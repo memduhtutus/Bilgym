@@ -18,7 +18,7 @@ public class GymAppointmentScreen extends AppCompatActivity {
         startActivity(intent);
     }
     public void cancelAppointmentClicked(View view){
-        Intent intent = new Intent(GymAppointmentScreen.this, CancelActivityScreen.class);
+        Intent intent = new Intent(GymAppointmentScreen.this, CancelAppointmentScreen.class);
         startActivity(intent);
     }
 }

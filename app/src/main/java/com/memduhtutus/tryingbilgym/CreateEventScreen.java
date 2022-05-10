@@ -26,7 +26,6 @@ public class CreateEventScreen extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
     private FirebaseUser mUser;
-    private Event mEvent;
     private HashMap<String, Object> mData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +47,6 @@ public class CreateEventScreen extends AppCompatActivity {
 
         mData = new HashMap();
         mUser = mAuth.getCurrentUser();
-        mEvent = new Event(txtAlreadyJoined,txtSportType,txtHour, txtPeopleLooking);
         mData.put("Creator of this event", mUser.getEmail());
         mData.put("Number Of Joined People", txtAlreadyJoined);
         mData.put("Sport Type", txtSportType);
@@ -56,7 +54,6 @@ public class CreateEventScreen extends AppCompatActivity {
         mData.put("Left Quota", txtPeopleLooking);
 
         mUser = mAuth.getCurrentUser();
-        mEvent = new Event(txtAlreadyJoined,txtSportType,txtHour, txtPeopleLooking);
         mDatabase.child("Events").child(mUser.getUid())
                 .setValue(mData)
                 .addOnCompleteListener(CreateEventScreen.this, new OnCompleteListener<Void>() {

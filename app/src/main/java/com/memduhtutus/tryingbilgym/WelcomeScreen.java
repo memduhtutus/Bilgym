@@ -16,13 +16,6 @@ public class WelcomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-      //  FirebaseUser user = auth.getCurrentUser();
-        /*if(user != null) {
-            Intent intent = new Intent(WelcomeScreen.this, LogInScreen.class);
-            startActivity(intent);
-            finish();
-
-        }*/
     }
 
     public void signUpClicked(View view){

@@ -7,8 +7,6 @@ public class User {
     String bilkentMail;
     String bilID;
     String password;
-    ArrayList<Event> joinedEvents;
-    ArrayList<Reservation> joinedReservations;
 
     public User(){
 

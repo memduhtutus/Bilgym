@@ -37,9 +37,6 @@
             android:name=".PersonalInfoScreen"
             android:exported="false" />
         <activity
-            android:name=".ProgressTrackingScreen"
-            android:exported="false" />
-        <activity
             android:name=".PersonalTrainerScreen"
             android:exported="false" />
         <activity
@@ -55,7 +52,7 @@
             android:name=".CreateEventScreen"
             android:exported="false" />
         <activity
-            android:name=".CancelActivityScreen"
+            android:name=".CancelAppointmentScreen"
             android:exported="false" />
         <activity
             android:name=".AvailableEventScreen"
