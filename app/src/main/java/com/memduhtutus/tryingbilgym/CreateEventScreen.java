@@ -3,6 +3,7 @@ package com.memduhtutus.tryingbilgym;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -65,5 +66,8 @@ public class CreateEventScreen extends AppCompatActivity {
                             Toast.makeText(CreateEventScreen.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+        Intent intent = new Intent(CreateEventScreen.this, MatchmakingScreen.class);
+        startActivity(intent);
+        finish();
     }
 }
