@@ -30,11 +30,12 @@ public class PersonalInfoScreen extends AppCompatActivity {
     private EditText editAge, editGender, editHeight, editWeight;
     private String txtGender;
     private int txtAge, txtHeight, txtWeight;
+    double txtBMI;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
     private HashMap<String, Object> mData;
     private FirebaseUser mUser;
-    TextView textViewAge, textViewGender, textViewHeight, textViewWeight;
+    TextView textViewAge, textViewGender, textViewHeight, textViewWeight, textViewBMI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,7 @@ public class PersonalInfoScreen extends AppCompatActivity {
         textViewGender = findViewById(R.id.textViewUserGender);
         textViewHeight = findViewById(R.id.textViewUserHeight);
         textViewWeight = findViewById(R.id.textViewUserWeight);
+        textViewBMI = findViewById((R.id.textViewUserBMI));
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -60,6 +62,7 @@ public class PersonalInfoScreen extends AppCompatActivity {
         txtGender = editGender.getText().toString();
         txtHeight = Integer.parseInt(editHeight.getText().toString());
         txtWeight = Integer.parseInt(editWeight.getText().toString());
+        txtBMI = txtWeight / (((double) txtHeight/100) * ((double) txtHeight/100));
 
         mData = new HashMap();
         mUser = mAuth.getCurrentUser();
@@ -67,6 +70,7 @@ public class PersonalInfoScreen extends AppCompatActivity {
         mData.put("Your Gender", txtGender);
         mData.put("Your Height", txtHeight);
         mData.put("Your Weight", txtWeight);
+        mData.put("Your BMI", String.format("%.2f", txtBMI));
 
         mDatabase.child("Users' Personal Info").child(mUser.getUid())
                 .setValue(mData)
@@ -79,6 +83,7 @@ public class PersonalInfoScreen extends AppCompatActivity {
                             Toast.makeText(PersonalInfoScreen.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+
     }
     public void buttonShowInfosClicked(View view){
         mUser = mAuth.getCurrentUser();
@@ -87,7 +92,7 @@ public class PersonalInfoScreen extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String values;
-                String[] valuesArr = new String[4];
+                String[] valuesArr = new String[5];
                 for(DataSnapshot snp : snapshot.getChildren()){
                     if(snp.getKey().equals(mUser.getUid())){
                         values = snp.getValue().toString();
@@ -97,7 +102,8 @@ public class PersonalInfoScreen extends AppCompatActivity {
                 textViewAge.setText(valuesArr[0].substring(1));
                 textViewGender.setText(valuesArr[1]);
                 textViewHeight.setText(valuesArr[2]);
-                textViewWeight.setText(valuesArr[3].substring(0, valuesArr[3].length()-1));
+                textViewWeight.setText(valuesArr[3]);
+                textViewBMI.setText(valuesArr[4].substring(0, valuesArr[4].length()-1));
             }
 
             @Override

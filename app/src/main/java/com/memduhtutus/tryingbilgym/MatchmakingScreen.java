@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 
 public class MatchmakingScreen extends AppCompatActivity{
-    static ArrayList<Event> events;
     public void MatchMakingScreen(){
 
     }
