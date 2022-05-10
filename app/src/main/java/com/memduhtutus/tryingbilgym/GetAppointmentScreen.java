@@ -2,6 +2,7 @@ package com.memduhtutus.tryingbilgym;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -82,5 +83,8 @@ public class GetAppointmentScreen extends AppCompatActivity {
                             Toast.makeText(GetAppointmentScreen.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+        Intent intent = new Intent(GetAppointmentScreen.this, MainScreen.class);
+        startActivity(intent);
+        finish();
     }
 }

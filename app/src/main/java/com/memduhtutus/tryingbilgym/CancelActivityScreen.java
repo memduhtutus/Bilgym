@@ -80,5 +80,8 @@ public class CancelActivityScreen extends AppCompatActivity {
                             Toast.makeText(CancelActivityScreen.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+        Intent intent = new Intent(CancelActivityScreen.this, MainScreen.class);
+        startActivity(intent);
+        finish();
     }
 }
