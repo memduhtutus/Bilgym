@@ -85,6 +85,5 @@ public class GetAppointmentScreen extends AppCompatActivity {
                 });
         Intent intent = new Intent(GetAppointmentScreen.this, MainScreen.class);
         startActivity(intent);
-        finish();
     }
 }
