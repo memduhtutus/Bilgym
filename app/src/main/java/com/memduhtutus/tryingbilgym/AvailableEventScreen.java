@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ public class AvailableEventScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_available_event_screen);
         mAuth = FirebaseAuth.getInstance();
+
     }
 
     public void showEventsClicked(View view){
@@ -59,6 +61,7 @@ public class AvailableEventScreen extends AppCompatActivity {
                     result += "\n\n";
                 }
                 txtAvailableEvents.setText(result);
+
 
             }
 
