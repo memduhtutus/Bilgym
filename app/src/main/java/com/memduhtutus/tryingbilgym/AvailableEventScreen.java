@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ScrollView;
@@ -61,7 +62,7 @@ public class AvailableEventScreen extends AppCompatActivity {
                     result += "\n\n";
                 }
                 txtAvailableEvents.setText(result);
-
+                txtAvailableEvents.setMovementMethod(new ScrollingMovementMethod());
 
             }
 
