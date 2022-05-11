@@ -83,7 +83,9 @@ public class PersonalInfoScreen extends AppCompatActivity {
                             Toast.makeText(PersonalInfoScreen.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-
+        Intent intent = new Intent(PersonalInfoScreen.this, MainScreen.class);
+        startActivity(intent);
+        finish();
     }
     public void buttonShowInfosClicked(View view){
         mUser = mAuth.getCurrentUser();
