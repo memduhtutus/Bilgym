@@ -36,6 +36,7 @@ public class CancelAppointmentScreen extends AppCompatActivity {
         radioGroupDays = findViewById(R.id.radioGroupDays);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        mUser = mAuth.getCurrentUser();
     }
 
     public void buttonApplyHourClicked(View view){
@@ -55,7 +56,6 @@ public class CancelAppointmentScreen extends AppCompatActivity {
     public void buttonCancelAppointmentClicked(View view){
         mDatabase = FirebaseDatabase.getInstance().getReference("Reservations").child(mUser.getUid());
         DatabaseHandler dh = new DatabaseHandler(mDatabase, mAuth);
-        mUser = dh.getmAuth().getCurrentUser();
         dh.getmDatabase().removeValue()
                 .addOnCompleteListener(CancelAppointmentScreen.this, new OnCompleteListener<Void>() {
                     @Override
