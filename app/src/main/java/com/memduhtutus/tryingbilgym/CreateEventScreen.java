@@ -45,17 +45,17 @@ public class CreateEventScreen extends AppCompatActivity {
         txtAlreadyJoined = Integer.parseInt(editAlreadyJoined.getText().toString());
         txtPeopleLooking = Integer.parseInt(editPeopleLooking.getText().toString());
         txtHour = editHour.getText().toString();
+        DatabaseHandler dh = new DatabaseHandler(mDatabase, mAuth);
 
         mData = new HashMap();
-        mUser = mAuth.getCurrentUser();
+        mUser = dh.getmAuth().getCurrentUser();
         mData.put("Creator of this event", mUser.getEmail());
         mData.put("Number Of Joined People", txtAlreadyJoined);
         mData.put("Sport Type", txtSportType);
         mData.put("Hour", txtHour);
         mData.put("Left Quota", txtPeopleLooking);
 
-        mUser = mAuth.getCurrentUser();
-        mDatabase.child("Events").child(mUser.getUid())
+        dh.getmDatabase().child("Events").child(mUser.getUid())
                 .setValue(mData)
                 .addOnCompleteListener(CreateEventScreen.this, new OnCompleteListener<Void>() {
                     @Override

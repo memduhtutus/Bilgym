@@ -62,10 +62,11 @@ public class SignUpScreen extends AppCompatActivity {
             auth.createUserWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                 @Override
                 public void onSuccess(AuthResult authResult) {
-                    mUser = auth.getCurrentUser();
+                    DatabaseHandler dh = new DatabaseHandler(mDatabase, auth);
+                    mUser = dh.getmAuth().getCurrentUser();
 
                     user = new User(name, email, bilkentId, password);
-                    mDatabase.child("Users").child(mUser.getUid())
+                    dh.getmDatabase().child("Users").child(mUser.getUid())
                             .setValue(user)
                             .addOnCompleteListener(SignUpScreen.this, new OnCompleteListener<Void>() {
                                 @Override

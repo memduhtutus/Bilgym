@@ -42,9 +42,10 @@ public class AvailableEventScreen extends AppCompatActivity {
     }
 
     public void showEventsClicked(View view){
-        mUser = mAuth.getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference("Events");
-        mDatabase.addValueEventListener(new ValueEventListener() {
+        DatabaseHandler dh = new DatabaseHandler(mDatabase, mAuth);
+        mUser = dh.getmAuth().getCurrentUser();
+        dh.getmDatabase().addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String result = "";

@@ -63,16 +63,17 @@ public class PersonalInfoScreen extends AppCompatActivity {
         txtHeight = Integer.parseInt(editHeight.getText().toString());
         txtWeight = Integer.parseInt(editWeight.getText().toString());
         txtBMI = txtWeight / (((double) txtHeight/100) * ((double) txtHeight/100));
+        DatabaseHandler dh = new DatabaseHandler(mDatabase, mAuth);
 
         mData = new HashMap();
-        mUser = mAuth.getCurrentUser();
+        mUser = dh.getmAuth().getCurrentUser();
         mData.put("Your Age", txtAge);
         mData.put("Your Gender", txtGender);
         mData.put("Your Height", txtHeight);
         mData.put("Your Weight", txtWeight);
         mData.put("Your BMI", String.format("%.2f", txtBMI));
 
-        mDatabase.child("Users' Personal Info").child(mUser.getUid())
+        dh.getmDatabase().child("Users' Personal Info").child(mUser.getUid())
                 .setValue(mData)
                 .addOnCompleteListener(PersonalInfoScreen.this, new OnCompleteListener<Void>() {
                     @Override
@@ -88,9 +89,10 @@ public class PersonalInfoScreen extends AppCompatActivity {
         finish();
     }
     public void buttonShowInfosClicked(View view){
-        mUser = mAuth.getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference("Users' Personal Info");
-        mDatabase.addValueEventListener(new ValueEventListener() {
+        DatabaseHandler dh = new DatabaseHandler(mDatabase, mAuth);
+        mUser = dh.getmAuth().getCurrentUser();
+        dh.getmDatabase().addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String values;

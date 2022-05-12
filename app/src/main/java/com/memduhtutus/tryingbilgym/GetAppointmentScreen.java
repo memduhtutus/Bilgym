@@ -67,12 +67,13 @@ public class GetAppointmentScreen extends AppCompatActivity {
         radioButtonDay = (RadioButton) findViewById(radioIdDay);
         txtDay = radioButtonDay.getText().toString();
         mData = new HashMap();
-        mUser = mAuth.getCurrentUser();
+        DatabaseHandler dh = new DatabaseHandler(mDatabase, mAuth);
+        mUser = dh.getmAuth().getCurrentUser();
         mData.put("User", mUser.getEmail());
         mData.put("Hour", txtHour);
         mData.put("Day", txtDay);
 
-        mDatabase.child("Reservations").child(mUser.getUid())
+        dh.getmDatabase().child("Reservations").child(mUser.getUid())
                 .setValue(mData)
                 .addOnCompleteListener(GetAppointmentScreen.this, new OnCompleteListener<Void>() {
                     @Override

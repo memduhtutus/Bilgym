@@ -53,10 +53,10 @@ public class CancelAppointmentScreen extends AppCompatActivity {
     }
 
     public void buttonCancelAppointmentClicked(View view){
-
-        mUser = mAuth.getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference("Reservations").child(mUser.getUid());
-        mDatabase.removeValue()
+        DatabaseHandler dh = new DatabaseHandler(mDatabase, mAuth);
+        mUser = dh.getmAuth().getCurrentUser();
+        dh.getmDatabase().removeValue()
                 .addOnCompleteListener(CancelAppointmentScreen.this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
