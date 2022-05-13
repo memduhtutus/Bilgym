@@ -48,3 +48,11 @@ These are "Set Password" and "Set Body Infos" button.
 Here, you can set your new password from the "Set Password" button and you can set your current body infos from "Set Body Infos" button.
 
 *****************************************************************
+
+Our Dependencies:
+Because of the asynchronization of the Firebase, our classes do not have an relation with theirselves.
+All of them are relatred to common database
+All the data that comes from the methods of these classes are stored in the keys that corresponds to these classes
+And again all the data can be accesed from these keys and the keys' values
+
+*****************************************************************
