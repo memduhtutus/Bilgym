@@ -1,3 +1,5 @@
+*****************************************************************
+
 Our application is very user friendly and easy to use application.
 
 ****************************************************************
@@ -44,3 +46,5 @@ First one is "Set" button.
 If you click the "Set" button, you encounter with 2 option.
 These are "Set Password" and "Set Body Infos" button.
 Here, you can set your new password from the "Set Password" button and you can set your current body infos from "Set Body Infos" button.
+
+*****************************************************************
